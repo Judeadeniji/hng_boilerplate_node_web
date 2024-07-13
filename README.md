@@ -1,8 +1,76 @@
+
 # Bellefull Integration Documentation
 
 ## Overview
 
 The Belleful Food Ordering App API provides a seamless experience for customers to order their favorite meals. This API offers endpoints for managing user accounts, browsing available meals, placing orders, and tracking delivery status.
+
+
+#### Key Features:
+-   **User Registration**: Endpoints for creating new user accounts.
+-   **Profile Setup**: Endpoints for setting up user profiles and preferences.
+-   **Verification**: Endpoints for verifying user information and credentials.
+
+#### Differentiating Users:
+
+A header parameter called `x-request-source` is used to differentiate between vendors, admins, and customers. This parameter should be included in the request headers and set to the appropriate value for the user type (e.g., `vendor`, `admin`, `customer`).
+
+## API Schema
+
+The Belleful Food Ordering App API schema outlines the structure and types of data used in our API requests and responses. Detailed schema definitions for each endpoint can be found in the `API_REFERENCE.md` file. Additionally, our API is documented using Postman Documenter, which can be accessed [here](https://documenter.getpostman.com/view/15091597/2sA3e5eTsG#intro).
+
+## Versioning
+This project is versioned to ensure backward compatibility and easy maintenance. The current version is v1.
+
+
+## Database and Relationships
+
+The Belleful Food Ordering App database schema defines the structure and relationships between various entities. Here are some of the key tables:
+
+- **Users**
+  - Stores information about users, including customers, vendors, and admins.
+- **Vendors**
+  - Contains details about each vendor, including name, address, and description.
+- **Meals**
+  - Lists all available meals with their ingredients, prices, and images.
+- **Orders**
+  - Tracks customer orders, including meal details, quantities, and order status.
+- **Cart**
+  - Stores the current contents of a customer's cart.
+
+Detailed relationships between these tables can be found [here](https://erd.dbdesigner.net/designer/schema/1720905377-bellefu).
+
+# Dependencies for Belleful Food Ordering App
+
+## Backend Dependencies
+- **express**: Web framework for Node.js
+- **pg**: PostgreSQL client for Node.js
+- **typeorm**: ORM for TypeScript and JavaScript (ES7, ES6, ES5)
+- **sequelize**: Promise-based Node.js ORM for Postgres, MySQL, MariaDB, SQLite, and Microsoft SQL Server
+- **dotenv**: Loads environment variables from a `.env` file into `process.env`
+- **bcrypt**: Library to hash passwords
+- **jsonwebtoken**: For JSON Web Token authentication
+- **cors**: Middleware to enable CORS (Cross-Origin Resource Sharing)
+- **body-parser**: Middleware to parse incoming request bodies
+- **morgan**: HTTP request logger middleware for Node.js
+- **express-validator**: Express middleware for validation
+
+## Testing Dependencies
+- **jest**: JavaScript Testing Framework
+- **supertest**: HTTP assertions made easy via superagent
+- **chai**: BDD / TDD assertion library for node and the browser
+- **mocha**: JavaScript test framework for Node.js
+
+## Development Dependencies
+- **nodemon**: Automatically restart the node application when file changes are detected
+- **typescript**: TypeScript language support
+- **ts-node**: TypeScript execution environment for Node.js
+- **tslint**: Linter for TypeScript
+
+## Documentation Dependencies
+- **swagger-jsdoc**: JSDoc to Swagger API documentation generator
+- **swagger-ui-express**: Swagger UI for Express.js
+- **postman-doc**: Postman documentation tool for API standards, contracts and schema
 
 ## Folder Structure
 
@@ -29,13 +97,7 @@ The Belleful Food Ordering App API provides a seamless experience for customers 
 |--- tsconfig.json
 ```
 
-## Dependencies (Dev)
-
-- Node.js
-- TypeScript
-- Express
-- ts-node-dev
-- [Other dependencies]
+```
 
 ## Getting Started
 
@@ -212,29 +274,6 @@ npm run start
 
 Open your browser and navigate to `http://localhost:3000/api/v1/` to verify that the application is running correctly.
 
-## Folder Structure
-
-Here's an overview of the project's folder structure:
-
-```
-|--- src
-|    |--- controllers
-          |--- v1
-|    |--- database
-|    |--- interfaces
-|    |--- middlewares
-|    |--- routes
-|         |--- v1
-|    |--- services
-|    |--- utils
-|    |--- server.ts
-|--- .env
-|--- app.ts
-|--- .gitignore
-|--- package.json
-|--- tsconfig.json
-```
-
 ## Scripts
 
 Here are some useful npm scripts that you can use during development and production:
@@ -253,10 +292,3 @@ Here are some useful npm scripts that you can use during development and product
 
 By following these steps, you should have your Node.js and TypeScript application up and running. If you encounter any issues, please refer to the documentation of the respective tools or seek help from the community.
 
-## API Endpoints
-
-All API endpoints can be referenced in the [API Reference](API_REFERENCE.md) document.
-
-## Versioning
-
-This project is versioned to ensure backward compatibility and easy maintenance. The current version is v1.
